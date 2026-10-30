@@ -1,0 +1,3448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>医药商务英语 · 碎片时间背词</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="商务英语">
+<meta name="theme-color" content="#1F3864">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:#F4F6F9;color:#1B2430;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+body{padding-bottom:calc(66px + env(safe-area-inset-bottom));max-width:640px;margin:0 auto}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.hd{background:linear-gradient(135deg,#1F3864,#0B5FA5);color:#fff;padding:calc(12px + env(safe-area-inset-top)) 16px 14px;position:relative}
+.hd h1{margin:0;font-size:16px;font-weight:600;letter-spacing:.5px}
+.hd .sub{font-size:11px;opacity:.75;margin-top:2px}
+.pbar{height:6px;background:rgba(255,255,255,.25);border-radius:6px;margin-top:10px;overflow:hidden}
+.pbar i{display:block;height:100%;background:#7FD4FF;border-radius:6px;transition:width .3s}
+.hdinfo{display:flex;justify-content:space-between;font-size:11px;margin-top:6px;opacity:.9}
+.wrap{padding:14px 14px 8px}
+/* 卡片 */
+.card{perspective:1200px;margin:6px 0 14px}
+.card-inner{position:relative;min-height:240px;transition:transform .45s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d}
+.card.flip .card-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:#fff;border-radius:16px;box-shadow:0 4px 18px rgba(31,56,100,.10);
+  padding:20px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.face.back{transform:rotateY(180deg);justify-content:flex-start;text-align:left;align-items:stretch;overflow-y:auto}
+.mtrow{display:flex;gap:6px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.chip{font-size:11px;padding:3px 9px;border-radius:99px;background:#EEF3F9;color:#1F3864;font-weight:600}
+.chip.star{background:#FFF2CC;color:#8A6100}
+.chip.idx{background:#E8F6EE;color:#00734A}
+.wd{font-size:30px;font-weight:700;color:#12243D;line-height:1.25;word-break:break-word;font-family:"SF Mono",Consolas,Menlo,monospace}
+.wd.small{font-size:21px;font-family:inherit;font-weight:600}
+.tip-short{font-size:12px;color:#8A94A6;margin-top:10px}
+.spk{margin-top:16px;width:64px;height:64px;border-radius:50%;background:#0093D0;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,147,208,.35)}
+.spk:active{transform:scale(.94)}
+.hint{font-size:11px;color:#A6AEBB;margin-top:14px}
+.cn{font-size:22px;font-weight:700;color:#12243D;line-height:1.4}
+.ex{margin-top:12px;background:#F7F9FC;border-left:3px solid #0093D0;border-radius:8px;padding:10px 12px}
+.ex .en{font-size:14px;color:#1B2430;line-height:1.5}
+.ex .cnl{font-size:13px;color:#6B7688;line-height:1.5;margin-top:5px}
+.tip{margin-top:10px;font-size:12.5px;color:#B47600;background:#FFF8E6;border-radius:8px;padding:8px 11px;line-height:1.5}
+.speakline{display:flex;gap:8px;margin-top:12px}
+.mini{flex:1;background:#EEF3F9;color:#1F3864;border-radius:10px;padding:9px;font-size:13px;font-weight:600}
+.mini:active{background:#E0E8F2}
+/* 评分按钮 */
+.grade{display:flex;gap:9px;margin-top:4px}
+.grade button{flex:1;padding:13px 0;border-radius:12px;font-size:14px;font-weight:600;color:#fff}
+.g0{background:#D64545}.g1{background:#E8A33D}.g2{background:#00A04A}
+.grade button:active{opacity:.82}
+.ghint{display:flex;justify-content:space-between;font-size:10.5px;color:#98A1B0;margin-top:6px;padding:0 2px}
+/* 空状态 */
+.empty{text-align:center;padding:52px 20px;color:#8A94A6}
+.empty .ico{font-size:52px}
+.empty p{font-size:14px;margin:12px 0 4px;line-height:1.6}
+.empty .b{background:#1F3864;color:#fff;border-radius:10px;padding:11px 22px;font-size:14px;font-weight:600;display:inline-block;margin-top:10px}
+/* 列表 */
+.search{width:100%;padding:11px 14px;border-radius:12px;border:1px solid #E2E8F0;background:#fff;font-size:14px;
+  outline:none;color:#1B2430}
+.filters{display:flex;gap:7px;overflow-x:auto;padding:10px 0 4px;-webkit-overflow-scrolling:touch}
+.filters button{white-space:nowrap;font-size:12.5px;padding:6px 13px;border-radius:99px;background:#fff;
+  border:1px solid #E2E8F0;color:#5A6577;font-weight:500}
+.filters button.on{background:#1F3864;color:#fff;border-color:#1F3864}
+.item{background:#fff;border-radius:12px;padding:13px 14px;margin-bottom:8px;box-shadow:0 1px 5px rgba(31,56,100,.06);
+  display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.item .l{flex:1;min-width:0}
+.item .e{font-size:15px;font-weight:600;color:#12243D;word-break:break-word}
+.item .c{font-size:13px;color:#6B7688;margin-top:4px;line-height:1.45}
+.item .r{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.dot{width:9px;height:9px;border-radius:50%;background:#DDE3EA;flex:none}
+.dot.d1{background:#00A04A}.dot.d2{background:#E8A33D}.dot.d3{background:#C9D2DD}
+.detail{display:none;padding:0 14px 14px;margin-top:-4px;background:#fff;border-radius:0 0 12px 12px;font-size:13.5px;color:#42506B;line-height:1.65}
+.item.open + .detail{display:block}
+/* 统计 */
+.stat{background:#fff;border-radius:14px;padding:16px;margin-bottom:10px;box-shadow:0 1px 6px rgba(31,56,100,.06)}
+.stat h3{margin:0 0 12px;font-size:14px;color:#12243D}
+.bignum{display:flex;gap:14px;text-align:center}
+.bignum div{flex:1;background:#F7F9FC;border-radius:10px;padding:12px 6px}
+.bignum b{display:block;font-size:23px;color:#1F3864}
+.bignum span{font-size:11px;color:#8A94A6;margin-top:2px;display:block}
+.rowbar{display:flex;align-items:center;gap:10px;margin-bottom:9px;font-size:12.5px}
+.rowbar .nm{width:46px;color:#42506B;flex:none}
+.rowbar .bar{flex:1;height:8px;background:#EEF1F6;border-radius:8px;overflow:hidden}
+.rowbar .bar i{display:block;height:100%;background:#0093D0}
+.rowbar .vv{width:52px;text-align:right;color:#8A94A6;flex:none}
+.setrow{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #F0F3F7;font-size:13.5px}
+.setrow:last-child{border:none}
+.setrow select,.setrow input[type=number]{border:1px solid #E2E8F0;border-radius:8px;padding:6px 9px;font-size:13px;background:#fff;color:#1B2430}
+.sw{width:44px;height:25px;border-radius:99px;background:#D5DBE3;position:relative;transition:.2s}
+.sw.on{background:#0093D0}
+.sw i{position:absolute;top:2.5px;left:2.5px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s}
+.sw.on i{left:21.5px}
+.btn{width:100%;padding:12px;border-radius:12px;background:#1F3864;color:#fff;font-size:14px;font-weight:600;margin-top:9px}
+.btn.gray{background:#EEF1F6;color:#42506B}
+.btn.red{background:#FFF0F0;color:#D64545}
+/* 计划 */
+.plan{background:#fff;border-radius:14px;padding:15px;margin-bottom:10px;box-shadow:0 1px 6px rgba(31,56,100,.06)}
+.plan h3{margin:0 0 10px;font-size:14px;color:#12243D;display:flex;align-items:center;gap:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{border-bottom:1px solid #F0F3F7;padding:8px 5px;text-align:left;vertical-align:top}
+th{color:#8A94A6;font-weight:600;font-size:11.5px}
+td{color:#42506B}
+.rule{display:flex;gap:9px;padding:9px 0;border-bottom:1px dashed #EDF0F5;font-size:13px;line-height:1.55}
+.rule:last-child{border:none}
+.rule .n{width:20px;height:20px;border-radius:50%;background:#1F3864;color:#fff;font-size:11px;
+  display:flex;align-items:center;justify-content:center;flex:none;font-weight:600}
+/* 底部导航 */
+.nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #E8ECF2;
+  display:flex;padding-bottom:env(safe-area-inset-bottom);z-index:50;box-shadow:0 -2px 12px rgba(31,56,100,.06)}
+.nav button{flex:1;padding:8px 0 7px;text-align:center;font-size:10px;color:#98A1B0}
+.nav button .ic{font-size:20px;display:block;line-height:1.2}
+.nav button.on{color:#1F3864;font-weight:600}
+.tab{display:none}.tab.on{display:block}
+.toast{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(18,36,61,.92);color:#fff;
+  padding:12px 20px;border-radius:12px;font-size:14px;z-index:99;opacity:0;transition:.25s;pointer-events:none;text-align:center}
+.toast.on{opacity:1}
+.mask{position:fixed;inset:0;background:rgba(18,36,61,.45);z-index:80;display:none;align-items:center;justify-content:center;padding:24px}
+.mask.on{display:flex}
+.mbox{background:#fff;border-radius:16px;padding:20px;max-width:340px;font-size:13.5px;line-height:1.7;color:#42506B}
+.mbox b{color:#12243D;font-size:15px;display:block;margin-bottom:8px}
+</style>
+</head>
+<body>
+
+<div class="hd">
+  <h1>💊 医药商务英语 · 碎片背词</h1>
+  <div class="sub">医药市场部定制 · 263 条 · 含读音</div>
+  <div class="pbar"><i id="pbar" style="width:0%"></i></div>
+  <div class="hdinfo"><span id="hdL">已学 0 / 263</span><span id="hdR">今日 0 / 15</span></div>
+</div>
+
+<div class="wrap">
+  <!-- 学习 -->
+  <div class="tab on" id="t-learn">
+    <div id="learnBox"></div>
+  </div>
+  <!-- 复习 -->
+  <div class="tab" id="t-review">
+    <div id="revBox"></div>
+  </div>
+  <!-- 听音 -->
+  <div class="tab" id="t-listen">
+    <div id="lisBox"></div>
+  </div>
+  <!-- 词表 -->
+  <div class="tab" id="t-list">
+    <input class="search" id="q" placeholder="🔍 搜中文或英文，如「对齐」/ align">
+    <div class="filters" id="fcat"></div>
+    <div class="filters" id="fstar"></div>
+    <div id="listBox" style="margin-top:8px"></div>
+  </div>
+  <!-- 我的 -->
+  <div class="tab" id="t-me">
+    <div id="meBox"></div>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="on" data-t="t-learn"><span class="ic">📖</span>学习</button>
+  <button data-t="t-review"><span class="ic">🔁</span>复习<span id="navDue"></span></button>
+  <button data-t="t-listen"><span class="ic">👂</span>听音</button>
+  <button data-t="t-list"><span class="ic">📋</span>词表</button>
+  <button data-t="t-me"><span class="ic">📊</span>我的</button>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="mask" id="mask"><div class="mbox" id="mbox"></div></div>
+
+<script>const DATA=[
+{
+"id": 1,
+"en": "align (on)",
+"cn": "对齐、达成一致",
+"ex": "Let's align on the Q3 priorities before the MBR.",
+"exCn": "月度业务回顾前，我们先把Q3优先级对齐。",
+"tip": "外企第一高频动词：align on + 议题",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 2,
+"en": "alignment",
+"cn": "共识、对齐（名词）",
+"ex": "We need alignment across functions.",
+"exCn": "我们需要跨部门的共识。",
+"tip": "名词形式，汇报常用",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 3,
+"en": "sync (up)",
+"cn": "同步、碰一下",
+"ex": "Can we sync up for 15 min tomorrow?",
+"exCn": "明天能碰15分钟吗？",
+"tip": "sync = synchronize 口语缩写",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 4,
+"en": "touch base",
+"cn": "简短沟通一下",
+"ex": "Let me touch base with the field team.",
+"exCn": "我和一线团队简短沟通一下。",
+"tip": "美式高频口语",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 5,
+"en": "loop in",
+"cn": "拉某人进来（参与/知悉）",
+"ex": "Please loop in Legal on this.",
+"exCn": "请把法务也拉进来。",
+"tip": "抄送/拉群都用这个",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 6,
+"en": "circulate",
+"cn": "分发、传阅",
+"ex": "I'll circulate the deck after the meeting.",
+"exCn": "会后我把材料发给大家。",
+"tip": "发材料不说 send",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 7,
+"en": "cascade",
+"cn": "逐级传达",
+"ex": "Please cascade this to your teams.",
+"exCn": "请把这个逐级传达给你的团队。",
+"tip": "大区→DM→代表的传导",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 8,
+"en": "kick off",
+"cn": "启动",
+"ex": "We'll kick off the campaign in July.",
+"exCn": "我们7月启动这个项目。",
+"tip": "kick-off meeting = 启动会",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 9,
+"en": "wrap up",
+"cn": "收尾、结束",
+"ex": "Let's wrap up here.",
+"exCn": "我们就到这里。",
+"tip": "会议结束语",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 10,
+"en": "debrief",
+"cn": "复盘、会后小结",
+"ex": "Let's do a quick debrief after the call.",
+"exCn": "会后来个快速复盘。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 11,
+"en": "recap",
+"cn": "回顾要点",
+"ex": "To recap, there are three action items.",
+"exCn": "回顾一下，有三个行动项。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 12,
+"en": "action item",
+"cn": "行动项、待办",
+"ex": "Action item: John to finalize the budget by Friday.",
+"exCn": "行动项：John周五前定稿预算。",
+"tip": "会议纪要必备",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 13,
+"en": "owner",
+"cn": "负责人",
+"ex": "Who's the owner of this workstream?",
+"exCn": "这个工作流谁负责？",
+"tip": "不是「老板」",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 14,
+"en": "follow up",
+"cn": "跟进",
+"ex": "I'll follow up with Medical separately.",
+"exCn": "我会单独和医学部跟进。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 15,
+"en": "escalate",
+"cn": "升级、上报",
+"ex": "If unresolved, escalate to the LT.",
+"exCn": "解决不了就上报领导团队。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 16,
+"en": "flag",
+"cn": "提出、标记（问题/风险）",
+"ex": "Just want to flag a risk here.",
+"exCn": "想在这里提一个风险。",
+"tip": "flag a risk/concern 极高频",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 17,
+"en": "highlight",
+"cn": "强调、指出",
+"ex": "I'd like to highlight two gaps.",
+"exCn": "我想指出两个差距。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 18,
+"en": "clarify",
+"cn": "澄清",
+"ex": "Could you clarify the timeline?",
+"exCn": "能澄清一下时间线吗？",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 19,
+"en": "confirm",
+"cn": "确认",
+"ex": "Please confirm receipt.",
+"exCn": "请确认收到。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 20,
+"en": "revert / get back to",
+"cn": "回复（对方）",
+"ex": "I'll revert by EOD.",
+"exCn": "我下班前回复。",
+"tip": "印度/新加坡同事超爱用 revert",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 21,
+"en": "EOD / COB",
+"cn": "下班前",
+"ex": "Please send it by EOD Friday.",
+"exCn": "请周五下班前发。",
+"tip": "EOD=End of Day；COB=Close of Business",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 22,
+"en": "TBD / TBC",
+"cn": "待定",
+"ex": "Venue: TBD.",
+"exCn": "地点待定。",
+"tip": "TBD=To Be Determined / TBC=To Be Confirmed",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 23,
+"en": "FYI",
+"cn": "供你参考（不需回复）",
+"ex": "FYI - the guideline was updated.",
+"exCn": "供参考，指南更新了。",
+"tip": "For Your Information",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 24,
+"en": "ASAP",
+"cn": "尽快",
+"ex": "I need this ASAP.",
+"exCn": "这个我尽快要。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 25,
+"en": "on track",
+"cn": "按计划进行",
+"ex": "We're on track to hit 105%.",
+"exCn": "我们按计划能完成105%。",
+"tip": "汇报必用",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 26,
+"en": "off track",
+"cn": "偏离计划",
+"ex": "Two regions are off track.",
+"exCn": "两个区域偏离计划。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 27,
+"en": "at risk",
+"cn": "有风险",
+"ex": "This deliverable is at risk.",
+"exCn": "这个交付物有风险。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 28,
+"en": "on hold",
+"cn": "暂缓、搁置",
+"ex": "Put it on hold until Q4.",
+"exCn": "放到Q4再说。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 29,
+"en": "pending",
+"cn": "待处理、挂着",
+"ex": "Approval is still pending.",
+"exCn": "审批还挂着。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 30,
+"en": "blocked",
+"cn": "被阻塞、卡住了",
+"ex": "I'm blocked on data access.",
+"exCn": "我卡在数据权限上。",
+"tip": "blocked on + 原因",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 31,
+"en": "deliverable",
+"cn": "交付物",
+"ex": "Key deliverables for Q3 are listed below.",
+"exCn": "Q3关键交付物如下。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 32,
+"en": "milestone",
+"cn": "里程碑",
+"ex": "We hit the July milestone.",
+"exCn": "我们达成了7月里程碑。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 33,
+"en": "deadline",
+"cn": "截止日期",
+"ex": "Hard deadline is Nov 30.",
+"exCn": "硬截止是11月30日。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 34,
+"en": "timeline",
+"cn": "时间线、排期",
+"ex": "What's the timeline for rollout?",
+"exCn": "落地的时间线是什么？",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 35,
+"en": "insight",
+"cn": "洞察（不是「观点」）",
+"ex": "Key insight: uptake is driven by C-class HCPs.",
+"exCn": "核心洞察：上量由C类客户驱动。",
+"tip": "汇报灵魂词",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 36,
+"en": "deep dive",
+"cn": "深入分析",
+"ex": "Let's do a deep dive on TOP hospitals.",
+"exCn": "我们深入分析一下TOP医院。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 37,
+"en": "drill down",
+"cn": "下钻（细拆）",
+"ex": "We can drill down to city level.",
+"exCn": "可以下钻到城市层级。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 38,
+"en": "breakdown",
+"cn": "拆解、细分",
+"ex": "Here's the breakdown by DM team.",
+"exCn": "这是按DM团队的拆解。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 39,
+"en": "overview / snapshot",
+"cn": "概览 / 快照",
+"ex": "Quick overview of H1 performance.",
+"exCn": "H1表现快速概览。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 40,
+"en": "trend",
+"cn": "趋势",
+"ex": "The 3-month trend is improving.",
+"exCn": "三个月的趋势在改善。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 41,
+"en": "benchmark",
+"cn": "基准、对标",
+"ex": "This is above the national benchmark.",
+"exCn": "这高于全国基准。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 42,
+"en": "baseline",
+"cn": "基线",
+"ex": "The baseline was set in December.",
+"exCn": "基线在12月设定。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 43,
+"en": "gap",
+"cn": "差距",
+"ex": "We still have a 12% gap to target.",
+"exCn": "距目标还有12%差距。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 44,
+"en": "driver",
+"cn": "驱动因素",
+"ex": "Main driver is new patient initiation.",
+"exCn": "主要驱动是新患者起始。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 45,
+"en": "lever",
+"cn": "抓手、杠杆",
+"ex": "What levers do we have in H2?",
+"exCn": "下半年我们有哪些抓手？",
+"tip": "外企超高频隐喻",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 46,
+"en": "rationale",
+"cn": "依据、理由",
+"ex": "What's the rationale behind this?",
+"exCn": "这背后的依据是什么？",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 47,
+"en": "assumption",
+"cn": "假设（前提）",
+"ex": "This forecast assumes no price cut.",
+"exCn": "这个预测假设不降价。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 48,
+"en": "scenario",
+"cn": "情景、方案",
+"ex": "Best/worst case scenario.",
+"exCn": "最好/最坏情景。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 49,
+"en": "prioritize",
+"cn": "排优先级",
+"ex": "We need to prioritize TOP 29 hospitals.",
+"exCn": "我们要给TOP29医院排优先级。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 50,
+"en": "leverage",
+"cn": "利用、借力",
+"ex": "Leverage existing KOL relationships.",
+"exCn": "借力现有KOL关系。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 51,
+"en": "pilot",
+"cn": "试点",
+"ex": "Run a pilot in Shandong.",
+"exCn": "在山东做个试点。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 52,
+"en": "roll out",
+"cn": "推广、铺开",
+"ex": "Roll out to 8 cities in Q4.",
+"exCn": "Q4铺开到8个城市。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 53,
+"en": "scale up",
+"cn": "扩大规模",
+"ex": "If the pilot works, scale up in 2027.",
+"exCn": "试点成功就2027年扩大。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 54,
+"en": "optimize",
+"cn": "优化",
+"ex": "Optimize resource allocation.",
+"exCn": "优化资源配置。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 55,
+"en": "validate",
+"cn": "验证",
+"ex": "We need to validate the data first.",
+"exCn": "我们需要先验证数据。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 56,
+"en": "finalize",
+"cn": "定稿",
+"ex": "Finalize the deck by Thursday.",
+"exCn": "周四前定稿材料。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 57,
+"en": "sign-off",
+"cn": "审批签字、批准",
+"ex": "Need LT sign-off before launch.",
+"exCn": "上市前需要领导团队签字。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 58,
+"en": "stakeholder",
+"cn": "相关方、干系人",
+"ex": "Align with key stakeholders first.",
+"exCn": "先和关键干系人对齐。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 59,
+"en": "cross-functional",
+"cn": "跨部门的",
+"ex": "Set up a cross-functional task force.",
+"exCn": "成立跨部门工作组。",
+"tip": "常缩写 X-functional",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 60,
+"en": "budget",
+"cn": "预算",
+"ex": "Budget is tight this year.",
+"exCn": "今年预算紧。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 61,
+"en": "spend",
+"cn": "支出、花费",
+"ex": "Total spend vs. plan is 92%.",
+"exCn": "总支出对比计划是92%。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 62,
+"en": "ROI",
+"cn": "投资回报率",
+"ex": "What's the ROI of this program?",
+"exCn": "这个项目的ROI是多少？",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 63,
+"en": "business case",
+"cn": "商业论证（立项理由）",
+"ex": "Build a business case for the pilot.",
+"exCn": "为试点做个商业论证。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 64,
+"en": "value proposition",
+"cn": "价值主张",
+"ex": "Our value proposition to HCPs is X.",
+"exCn": "我们面向医生的价值主张是X。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 65,
+"en": "launch",
+"cn": "上市、发布",
+"ex": "Post-launch performance review.",
+"exCn": "上市后表现回顾。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 66,
+"en": "portfolio",
+"cn": "产品组合",
+"ex": "The migraine portfolio.",
+"exCn": "偏头痛产品组合。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 67,
+"en": "differentiation",
+"cn": "差异化",
+"ex": "Clear differentiation vs. competitor.",
+"exCn": "相比竞品有明显差异化。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 68,
+"en": "competitive landscape",
+"cn": "竞争格局",
+"ex": "Map the competitive landscape.",
+"exCn": "梳理竞争格局。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 69,
+"en": "market share",
+"cn": "市场份额",
+"ex": "We gained 3 points of market share.",
+"exCn": "我们市场份额涨了3个点。",
+"tip": "",
+"star": 3,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 70,
+"en": "unmet need",
+"cn": "未满足需求",
+"ex": "Address the unmet need in VM.",
+"exCn": "解决前庭性偏头痛的未满足需求。",
+"tip": "",
+"star": 2,
+"cat": "商务",
+"kind": "word"
+},
+{
+"id": 71,
+"en": "TA (Therapeutic Area)",
+"cn": "治疗领域",
+"ex": "Our TA is neuroscience.",
+"exCn": "我们的治疗领域是神经科学。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 72,
+"en": "BU (Business Unit)",
+"cn": "业务单元",
+"ex": "The migraine BU.",
+"exCn": "偏头痛业务单元。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 73,
+"en": "Medical Affairs",
+"cn": "医学事务部",
+"ex": "Check with Medical Affairs before use.",
+"exCn": "使用前先和医学事务部确认。",
+"tip": "简称 Medical / MA",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 74,
+"en": "MSL",
+"cn": "医学联络官",
+"ex": "MSLs cover the TOP 29 hospitals.",
+"exCn": "医学联络官覆盖TOP29医院。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 75,
+"en": "Commercial",
+"cn": "商业化团队（销售+市场）",
+"ex": "Commercial and Medical must align.",
+"exCn": "商业化团队和医学部必须对齐。",
+"tip": "不是「商业」",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 76,
+"en": "Market Access",
+"cn": "市场准入",
+"ex": "Market Access leads the NRDL work.",
+"exCn": "市场准入牵头医保目录工作。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 77,
+"en": "HEOR",
+"cn": "卫生经济与结果研究",
+"ex": "HEOR data supports the value story.",
+"exCn": "卫生经济数据支撑价值故事。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 78,
+"en": "RWE (Real-World Evidence)",
+"cn": "真实世界证据",
+"ex": "Generate RWE from the patient registry.",
+"exCn": "用患者登记数据生成真实世界证据。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 79,
+"en": "Regulatory",
+"cn": "注册/法规事务",
+"ex": "Regulatory approval is pending.",
+"exCn": "注册审批还挂着。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 80,
+"en": "Compliance",
+"cn": "合规",
+"ex": "This needs Compliance review.",
+"exCn": "这需要合规审阅。",
+"tip": "⚠️ 医药行业最高频红线词",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 81,
+"en": "Pharmacovigilance (PV)",
+"cn": "药物警戒",
+"ex": "Report any AE to PV within 24h.",
+"exCn": "任何不良事件24小时内报药物警戒。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 82,
+"en": "LT (Leadership Team)",
+"cn": "领导团队",
+"ex": "Escalate to the LT if needed.",
+"exCn": "必要时上报领导团队。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 83,
+"en": "HCP",
+"cn": "医疗卫生专业人士（=医生）",
+"ex": "We reached 244 HCPs this quarter.",
+"exCn": "本季度我们覆盖了244位医生。",
+"tip": "⚠️ 外企规范说法，不说 doctor",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 84,
+"en": "KOL",
+"cn": "关键意见领袖",
+"ex": "Engage KOLs for the advisory board.",
+"exCn": "邀请KOL参加专家顾问会。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 85,
+"en": "OL / TL / DL",
+"cn": "意见领袖 / 学术带头人 / 数字化意见领袖",
+"ex": "Identify 6 TLs in Jiangsu.",
+"exCn": "在江苏识别6位学术带头人。",
+"tip": "DL偏线上影响力",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 86,
+"en": "Speaker",
+"cn": "讲者",
+"ex": "6 speakers confirmed for the symposium.",
+"exCn": "专题会已确认6位讲者。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 87,
+"en": "Advisory Board",
+"cn": "专家顾问会",
+"ex": "Hold an advisory board in Q4.",
+"exCn": "Q4举办一场专家顾问会。",
+"tip": "简称 ad board",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 88,
+"en": "Congress / Symposium",
+"cn": "学术大会 / 专题会",
+"ex": "The national headache congress.",
+"exCn": "全国头痛学术大会。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 89,
+"en": "Satellite meeting",
+"cn": "卫星会",
+"ex": "We sponsor a satellite at the congress.",
+"exCn": "我们在大会赞助一场卫星会。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 90,
+"en": "CME",
+"cn": "继续医学教育",
+"ex": "Apply for CME credits.",
+"exCn": "申请继续医学教育学分。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 91,
+"en": "Grant / Sponsorship",
+"cn": "科研资助 / 赞助",
+"ex": "Submit the grant application.",
+"exCn": "提交科研资助申请。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 92,
+"en": "IME",
+"cn": "独立医学教育",
+"ex": "Funded through IME, not promotion.",
+"exCn": "通过独立医学教育资助，非推广。",
+"tip": "合规隔离概念",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 93,
+"en": "Indication",
+"cn": "适应症",
+"ex": "Approved for acute migraine indication.",
+"exCn": "获批用于急性偏头痛适应症。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 94,
+"en": "Off-label",
+"cn": "超适应症",
+"ex": "Never discuss off-label use.",
+"exCn": "绝不讨论超适应症使用。",
+"tip": "⚠️ 合规红线，禁用",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 95,
+"en": "On-label",
+"cn": "适应症内",
+"ex": "Keep all messages on-label.",
+"exCn": "所有信息保持在适应症内。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 96,
+"en": "Efficacy / Safety",
+"cn": "疗效 / 安全性",
+"ex": "Balance efficacy and safety messaging.",
+"exCn": "平衡疗效与安全性信息。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 97,
+"en": "Tolerability",
+"cn": "耐受性",
+"ex": "Better tolerability than comparators.",
+"exCn": "耐受性优于对照药。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 98,
+"en": "AE / SAE",
+"cn": "不良事件 / 严重不良事件",
+"ex": "Report all SAEs immediately.",
+"exCn": "所有严重不良事件立即上报。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 99,
+"en": "Contraindication",
+"cn": "禁忌症",
+"ex": "Listed in the contraindications section.",
+"exCn": "列在禁忌症章节。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 100,
+"en": "MoA (Mechanism of Action)",
+"cn": "作用机制",
+"ex": "Explain the MoA to HCPs.",
+"exCn": "向医生讲解作用机制。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 101,
+"en": "PK / PD",
+"cn": "药代动力学 / 药效学",
+"ex": "PK profile supports once-daily dosing.",
+"exCn": "药代特征支持每日一次给药。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 102,
+"en": "Endpoint",
+"cn": "（研究）终点指标",
+"ex": "Primary endpoint was met.",
+"exCn": "主要终点已达成。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 103,
+"en": "Biomarker",
+"cn": "生物标志物",
+"ex": "No validated biomarker yet.",
+"exCn": "尚无经过验证的生物标志物。",
+"tip": "",
+"star": 1,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 104,
+"en": "Comorbidity",
+"cn": "合并症、共病",
+"ex": "Comorbid anxiety is common.",
+"exCn": "合并焦虑很常见。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 105,
+"en": "Dosing / Titration",
+"cn": "给药剂量 / 剂量滴定",
+"ex": "Start low and titrate up.",
+"exCn": "低剂量起始，逐步滴定。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 106,
+"en": "Adherence / Persistence",
+"cn": "依从性 / 用药持续性",
+"ex": "6-month persistence is 45%.",
+"exCn": "6个月用药持续性为45%。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 107,
+"en": "Discontinuation",
+"cn": "停药",
+"ex": "High discontinuation rate at month 3.",
+"exCn": "第3个月停药率高。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 108,
+"en": "Treatment-naive",
+"cn": "初治（未用过药的）",
+"ex": "Focus on treatment-naive patients.",
+"exCn": "聚焦初治患者。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 109,
+"en": "Relapse / Remission",
+"cn": "复发 / 缓解",
+"ex": "Relapse after discontinuation.",
+"exCn": "停药后复发。",
+"tip": "",
+"star": 1,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 110,
+"en": "Prophylaxis / Preventive",
+"cn": "预防性治疗",
+"ex": "Shift from acute to preventive treatment.",
+"exCn": "从急性治疗转向预防性治疗。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 111,
+"en": "Episodic / Chronic migraine",
+"cn": "发作性 / 慢性偏头痛",
+"ex": "Convert EM patients to CM.",
+"exCn": "发作性偏头痛患者转为慢性。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 112,
+"en": "Vestibular migraine (VM)",
+"cn": "前庭性偏头痛",
+"ex": "VM is a key growth segment.",
+"exCn": "前庭性偏头痛是重点增长细分。",
+"tip": "你的山东项目核心",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 113,
+"en": "CGRP",
+"cn": "降钙素基因相关肽（偏头痛靶点）",
+"ex": "CGRP monoclonal antibodies.",
+"exCn": "CGRP单抗。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 114,
+"en": "RCT / Meta-analysis",
+"cn": "随机对照试验 / 荟萃分析",
+"ex": "Evidence from 5 RCTs.",
+"exCn": "来自5项随机对照试验的证据。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 115,
+"en": "Observational study",
+"cn": "观察性研究",
+"ex": "Run an observational study in China.",
+"exCn": "在中国做一项观察性研究。",
+"tip": "",
+"star": 1,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 116,
+"en": "SmPC / PI",
+"cn": "产品说明书 / 处方信息",
+"ex": "Refer to the SmPC for dosing.",
+"exCn": "给药剂量参考产品说明书。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 117,
+"en": "Label",
+"cn": "说明书、标签",
+"ex": "The label was updated in March.",
+"exCn": "说明书3月更新了。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 118,
+"en": "NNT / NNH",
+"cn": "需治疗人数 / 致害人数",
+"ex": "NNT of 6 for the primary endpoint.",
+"exCn": "主要终点需治疗人数为6。",
+"tip": "",
+"star": 1,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 119,
+"en": "DDD",
+"cn": "限定日剂量",
+"ex": "DDD-based hospital segmentation.",
+"exCn": "基于限定日剂量的医院分层。",
+"tip": "你的DDD数据梳理",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 120,
+"en": "Territory",
+"cn": "辖区、区域",
+"ex": "Each rep owns one territory.",
+"exCn": "每位代表负责一个辖区。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 121,
+"en": "Quota",
+"cn": "销售定额、指标",
+"ex": "Quota was increased by 8%.",
+"exCn": "指标上调了8%。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 122,
+"en": "Target list",
+"cn": "目标名单",
+"ex": "Refresh the 244 target list.",
+"exCn": "刷新244目标名单。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 123,
+"en": "Coverage",
+"cn": "覆盖",
+"ex": "Speaker coverage and audience coverage.",
+"exCn": "讲者覆盖与听众覆盖。",
+"tip": "你的核心指标",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 124,
+"en": "Reach & Frequency",
+"cn": "覆盖广度与频次",
+"ex": "Improve reach without losing frequency.",
+"exCn": "提升覆盖广度而不损失频次。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 125,
+"en": "Segmentation & Targeting",
+"cn": "细分与靶向",
+"ex": "Segmentation by hospital tier.",
+"exCn": "按医院层级细分。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 126,
+"en": "SFE",
+"cn": "销售效能",
+"ex": "SFE team owns the dashboard.",
+"exCn": "销售效能团队负责看板。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 127,
+"en": "CRM (Veeva)",
+"cn": "客户关系管理系统",
+"ex": "Log all calls in CRM.",
+"exCn": "所有拜访录入CRM。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 128,
+"en": "Dashboard",
+"cn": "数据看板",
+"ex": "Check the regional dashboard weekly.",
+"exCn": "每周查看区域看板。",
+"tip": "你的东二区看板",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 129,
+"en": "Conversion / Upgrade",
+"cn": "转化 / 升级（观念升级）",
+"ex": "Track mindset upgrade quarter over quarter.",
+"exCn": "逐季度追踪观念升级。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 130,
+"en": "Demand generation",
+"cn": "需求生成",
+"ex": "Demand generation campaigns.",
+"exCn": "需求生成活动。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 131,
+"en": "Pull-through",
+"cn": "落地承接、执行到位",
+"ex": "Improve pull-through at field level.",
+"exCn": "提升一线落地承接。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 132,
+"en": "Reimbursement",
+"cn": "报销",
+"ex": "Reimbursement status varies by province.",
+"exCn": "各省报销状态不同。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 133,
+"en": "NRDL",
+"cn": "国家医保目录",
+"ex": "Included in the 2025 NRDL.",
+"exCn": "纳入2025年国家医保目录。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 134,
+"en": "VBP / Tender",
+"cn": "带量采购 / 招标",
+"ex": "VBP impact on price.",
+"exCn": "带量采购对价格的影响。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 135,
+"en": "Formulary",
+"cn": "药品目录、处方集",
+"ex": "Added to the hospital formulary.",
+"exCn": "纳入医院处方集。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 136,
+"en": "Hospital listing",
+"cn": "医院进院、列名",
+"ex": "Accelerate hospital listing.",
+"exCn": "加快医院进院。",
+"tip": "",
+"star": 3,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 137,
+"en": "DTP pharmacy",
+"cn": "直送药房",
+"ex": "Fulfill through DTP pharmacies.",
+"exCn": "通过直送药房供药。",
+"tip": "",
+"star": 2,
+"cat": "医药",
+"kind": "word"
+},
+{
+"id": 138,
+"en": "YTD",
+"cn": "年初至今累计",
+"ex": "YTD attainment is 94%.",
+"exCn": "年初至今达成94%。",
+"tip": "财年口径按Q1=12-2月",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 139,
+"en": "MTD / QTD",
+"cn": "月初至今 / 季度初至今",
+"ex": "MTD sales reached 320 boxes.",
+"exCn": "月初至今销售320盒。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 140,
+"en": "YoY",
+"cn": "同比（对比去年同期）",
+"ex": "YoY growth of 18%.",
+"exCn": "同比增长18%。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 141,
+"en": "MoM / QoQ",
+"cn": "环比 / 季度环比",
+"ex": "MoM improvement in June.",
+"exCn": "6月环比改善。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 142,
+"en": "PY / LY",
+"cn": "去年同期",
+"ex": "vs. LY, we are up 12%.",
+"exCn": "对比去年同期增长12%。",
+"tip": "PY=Prior Year, LY=Last Year",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 143,
+"en": "Actual vs. Plan",
+"cn": "实际对比计划",
+"ex": "Actual vs. Plan variance is -6%.",
+"exCn": "实际对比计划差异-6%。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 144,
+"en": "A/T (Attainment)",
+"cn": "达成率",
+"ex": "Q3 A/T stands at 97%.",
+"exCn": "Q3达成率97%。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 145,
+"en": "Achievement",
+"cn": "完成率",
+"ex": "Achievement rate by DM team.",
+"exCn": "按DM团队的完成率。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 146,
+"en": "Run rate",
+"cn": "运行率（按当前速度年化）",
+"ex": "Current run rate implies 1,200 boxes.",
+"exCn": "当前运行率对应1200盒。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 147,
+"en": "Forecast",
+"cn": "预测",
+"ex": "Update the full-year forecast.",
+"exCn": "更新全年预测。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 148,
+"en": "Variance",
+"cn": "差异",
+"ex": "Explain the variance vs. budget.",
+"exCn": "解释对比预算的差异。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 149,
+"en": "Delta",
+"cn": "差值、变化量",
+"ex": "Delta vs. last month is +45.",
+"exCn": "对比上月差值+45。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 150,
+"en": "Growth rate",
+"cn": "增长率",
+"ex": "Compound growth rate.",
+"exCn": "复合增长率。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 151,
+"en": "CAGR",
+"cn": "复合年均增长率",
+"ex": "5-year CAGR of 22%.",
+"exCn": "5年复合增长率22%。",
+"tip": "",
+"star": 1,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 152,
+"en": "Contribution",
+"cn": "贡献（占比）",
+"ex": "VM contribution is 40% of volume.",
+"exCn": "前庭性偏头痛贡献40%的量。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 153,
+"en": "Mix",
+"cn": "结构、构成",
+"ex": "Shift the mix toward preventive use.",
+"exCn": "把结构向预防用药调整。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 154,
+"en": "Penetration",
+"cn": "渗透率",
+"ex": "Penetration in TOP 29 hospitals.",
+"exCn": "TOP29医院渗透率。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 155,
+"en": "Share",
+"cn": "份额",
+"ex": "Share of total volume.",
+"exCn": "占总量份额。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 156,
+"en": "Index",
+"cn": "指数",
+"ex": "Index vs. national average = 108.",
+"exCn": "对比全国均值指数108。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 157,
+"en": "Weighted average",
+"cn": "加权平均",
+"ex": "Weighted average by hospital tier.",
+"exCn": "按医院层级加权平均。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 158,
+"en": "Median / Mean",
+"cn": "中位数 / 平均数",
+"ex": "Median is more robust than mean.",
+"exCn": "中位数比平均数更稳健。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 159,
+"en": "Outlier",
+"cn": "异常值",
+"ex": "Exclude two outliers.",
+"exCn": "剔除两个异常值。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 160,
+"en": "Cohort",
+"cn": "队列、同期群",
+"ex": "Follow the same cohort for 6 months.",
+"exCn": "对同一队列随访6个月。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 161,
+"en": "Sample size",
+"cn": "样本量",
+"ex": "Sample size is too small.",
+"exCn": "样本量太小。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 162,
+"en": "Statistical significance",
+"cn": "统计学显著性",
+"ex": "Difference is not statistically significant.",
+"exCn": "差异无统计学显著性。",
+"tip": "",
+"star": 1,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 163,
+"en": "p-value",
+"cn": "P值",
+"ex": "p < 0.05 is considered significant.",
+"exCn": "P<0.05视为显著。",
+"tip": "",
+"star": 1,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 164,
+"en": "Confidence interval",
+"cn": "置信区间",
+"ex": "95% CI: 12 to 18.",
+"exCn": "95%置信区间12到18。",
+"tip": "",
+"star": 1,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 165,
+"en": "Baseline",
+"cn": "基线",
+"ex": "Baseline set in December.",
+"exCn": "基线设在12月。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 166,
+"en": "Uplift",
+"cn": "提升（增量收益）",
+"ex": "Expected uplift of 15%.",
+"exCn": "预期提升15%。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 167,
+"en": "Incremental",
+"cn": "增量的",
+"ex": "Incremental volume from the campaign.",
+"exCn": "活动带来的增量销量。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 168,
+"en": "Cumulative",
+"cn": "累计的",
+"ex": "Cumulative to date.",
+"exCn": "截至目前累计。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 169,
+"en": "Rolling",
+"cn": "滚动的",
+"ex": "Rolling 3-month average.",
+"exCn": "滚动3个月平均。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 170,
+"en": "Cut-off",
+"cn": "（数据）截止时点",
+"ex": "Data cut-off is Oct 20.",
+"exCn": "数据截止10月20日。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 171,
+"en": "Granularity",
+"cn": "颗粒度",
+"ex": "Analyze at hospital granularity.",
+"exCn": "按医院颗粒度分析。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 172,
+"en": "Dimension",
+"cn": "维度",
+"ex": "Break down by DM dimension.",
+"exCn": "按DM维度拆解。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 173,
+"en": "Metric",
+"cn": "指标",
+"ex": "Define the metrics upfront.",
+"exCn": "提前定义指标。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 174,
+"en": "KPI",
+"cn": "关键绩效指标",
+"ex": "KPI dashboard for 8 cities.",
+"exCn": "8城KPI看板。",
+"tip": "",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 175,
+"en": "Numerator / Denominator",
+"cn": "分子 / 分母",
+"ex": "Numerator is boxes; denominator is target.",
+"exCn": "分子是盒数，分母是指标。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 176,
+"en": "Absolute vs. Relative",
+"cn": "绝对值 vs. 相对值",
+"ex": "Show both absolute and relative change.",
+"exCn": "同时展示绝对与相对变化。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 177,
+"en": "P / B / F",
+"cn": "计划 / 预算 / 预测",
+"ex": "Compare P, B and F.",
+"exCn": "对比计划、预算与预测。",
+"tip": "Plan/Budget/Forecast",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 178,
+"en": "Bottom line",
+"cn": "净利润；也指「结论」",
+"ex": "The bottom line: we need more resources.",
+"exCn": "结论是：我们需要更多资源。",
+"tip": "⚠️ 双关，高频",
+"star": 3,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 179,
+"en": "Top line",
+"cn": "总收入",
+"ex": "Top-line growth of 9%.",
+"exCn": "总收入增长9%。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 180,
+"en": "Gross-to-net",
+"cn": "毛收入到净收入（扣减）",
+"ex": "Gross-to-net deduction is 12%.",
+"exCn": "毛净扣减12%。",
+"tip": "",
+"star": 1,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 181,
+"en": "Headcount",
+"cn": "人员编制、人头数",
+"ex": "No additional headcount this year.",
+"exCn": "今年不增编。",
+"tip": "",
+"star": 2,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 182,
+"en": "Opex / Capex",
+"cn": "运营支出 / 资本支出",
+"ex": "Funded from Opex.",
+"exCn": "由运营支出承担。",
+"tip": "",
+"star": 1,
+"cat": "数据",
+"kind": "word"
+},
+{
+"id": 183,
+"en": "Hope this email finds you well.",
+"cn": "希望你一切顺利。",
+"ex": "",
+"exCn": "",
+"tip": "标准开场，不熟的人也能用",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "开场寒暄"
+},
+{
+"id": 184,
+"en": "Following up on our discussion yesterday...",
+"cn": "跟进我们昨天的讨论…",
+"ex": "",
+"exCn": "",
+"tip": "最实用的开场句",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "开场寒暄"
+},
+{
+"id": 185,
+"en": "As discussed, please find attached the latest deck.",
+"cn": "如沟通，附件是最新的材料。",
+"ex": "",
+"exCn": "",
+"tip": "find attached = 见附件",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "附件"
+},
+{
+"id": 186,
+"en": "Attaching the updated version for your review.",
+"cn": "附上更新版供你审阅。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "附件"
+},
+{
+"id": 187,
+"en": "Could you please share the latest numbers by EOD?",
+"cn": "能否下班前给一下最新数据？",
+"ex": "",
+"exCn": "",
+"tip": "Could you please 最礼貌",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "请求"
+},
+{
+"id": 188,
+"en": "Would it be possible to move the meeting to 3pm?",
+"cn": "会议能否改到下午3点？",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 2,
+"cat": "句式",
+"kind": "phrase",
+"tag": "请求"
+},
+{
+"id": 189,
+"en": "Just a gentle reminder on the pending approval.",
+"cn": "温和提醒一下挂着的审批。",
+"ex": "",
+"exCn": "",
+"tip": "gentle reminder 不得罪人",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "催办"
+},
+{
+"id": 190,
+"en": "Any update on this? We're currently blocked.",
+"cn": "有进展吗？我们目前卡住了。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "催办"
+},
+{
+"id": 191,
+"en": "I'd like to flag a potential risk here.",
+"cn": "我想在这里提一个潜在风险。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "提风险"
+},
+{
+"id": 192,
+"en": "To recap the key takeaways from today's call:",
+"cn": "回顾今天电话会的关键要点：",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "汇报"
+},
+{
+"id": 193,
+"en": "Please find the breakdown by DM team below.",
+"cn": "以下是按DM团队的拆解。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "汇报"
+},
+{
+"id": 194,
+"en": "Based on the latest data, we recommend prioritizing TOP 29.",
+"cn": "基于最新数据，我们建议优先TOP29。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "汇报"
+},
+{
+"id": 195,
+"en": "We're on track to deliver by Nov 30.",
+"cn": "我们按计划11月30日交付。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "进度"
+},
+{
+"id": 196,
+"en": "This is currently blocked on data access.",
+"cn": "目前卡在数据权限上。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "进度"
+},
+{
+"id": 197,
+"en": "We've escalated this to the LT.",
+"cn": "我们已上报领导团队。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 2,
+"cat": "句式",
+"kind": "phrase",
+"tag": "进度"
+},
+{
+"id": 198,
+"en": "Can we align on the priorities before Friday?",
+"cn": "周五前能否对齐优先级？",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "对齐"
+},
+{
+"id": 199,
+"en": "I'll revert with the updated deck tomorrow.",
+"cn": "我明天回复更新版材料。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "回复承诺"
+},
+{
+"id": 200,
+"en": "I'll keep you posted on the progress.",
+"cn": "有进展我会及时同步。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "回复承诺"
+},
+{
+"id": 201,
+"en": "Looping in [Name] for visibility.",
+"cn": "把XX拉进来知悉。",
+"ex": "",
+"exCn": "",
+"tip": "for visibility = 让他知道",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "拉人"
+},
+{
+"id": 202,
+"en": "Please cascade this to your respective teams.",
+"cn": "请传达到各自团队。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 2,
+"cat": "句式",
+"kind": "phrase",
+"tag": "传达"
+},
+{
+"id": 203,
+"en": "Please review and provide comments by Tuesday.",
+"cn": "请审阅并在周二前反馈意见。",
+"ex": "",
+"exCn": "",
+"tip": "comments = 修改意见",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "审阅"
+},
+{
+"id": 204,
+"en": "Just to clarify the timeline:",
+"cn": "澄清一下时间线：",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 2,
+"cat": "句式",
+"kind": "phrase",
+"tag": "澄清"
+},
+{
+"id": 205,
+"en": "Apologies for the delay in response.",
+"cn": "回复迟了，抱歉。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "道歉"
+},
+{
+"id": 206,
+"en": "I'm afraid I won't be able to attend.",
+"cn": "恐怕我无法参加。",
+"ex": "",
+"exCn": "",
+"tip": "I'm afraid 是最软的拒绝",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "拒绝/推后"
+},
+{
+"id": 207,
+"en": "Let's park this for now and revisit in Q4.",
+"cn": "这个先放一放，Q4再议。",
+"ex": "",
+"exCn": "",
+"tip": "park = 搁置，超高频",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "拒绝/推后"
+},
+{
+"id": 208,
+"en": "Let's schedule a quick sync to discuss.",
+"cn": "我们约个短会讨论。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "约会议"
+},
+{
+"id": 209,
+"en": "Are you available for a 30-min call tomorrow?",
+"cn": "明天有空打个30分钟电话吗？",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "约会议"
+},
+{
+"id": 210,
+"en": "Please let me know if you have any concerns.",
+"cn": "如有疑虑请告知。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "收尾"
+},
+{
+"id": 211,
+"en": "Looking forward to your feedback.",
+"cn": "期待你的反馈。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 3,
+"cat": "句式",
+"kind": "phrase",
+"tag": "收尾"
+},
+{
+"id": 212,
+"en": "Thanks for your continued support.",
+"cn": "感谢你的持续支持。",
+"ex": "",
+"exCn": "",
+"tip": "",
+"star": 2,
+"cat": "句式",
+"kind": "phrase",
+"tag": "收尾"
+},
+{
+"id": 213,
+"en": "ASAP",
+"cn": "尽快",
+"ex": "as soon as possible",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 214,
+"en": "EOD / COB",
+"cn": "下班前",
+"ex": "end of day / close of business",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 215,
+"en": "TBD / TBC",
+"cn": "待定 / 待确认",
+"ex": "to be determined / to be confirmed",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 216,
+"en": "FYI",
+"cn": "供参考（不需回复）",
+"ex": "for your information",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 217,
+"en": "ETA",
+"cn": "预计到达/完成时间",
+"ex": "estimated time of arrival",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 218,
+"en": "OOTO / OOO",
+"cn": "不在办公室（自动回复）",
+"ex": "out of the office",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 219,
+"en": "RSVP",
+"cn": "请回复（是否出席）",
+"ex": "法语 répondez s'il vous plaît",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 220,
+"en": "LT",
+"cn": "领导团队",
+"ex": "leadership team",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 221,
+"en": "TA / BU",
+"cn": "治疗领域 / 业务单元",
+"ex": "therapeutic area / business unit",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 222,
+"en": "HCP",
+"cn": "医生（规范说法）",
+"ex": "healthcare professional",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 223,
+"en": "KOL / OL / TL / DL",
+"cn": "意见领袖类",
+"ex": "key/digital/thought leader",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 224,
+"en": "MSL",
+"cn": "医学联络官",
+"ex": "medical science liaison",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 225,
+"en": "MA",
+"cn": "医学事务部",
+"ex": "medical affairs",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 226,
+"en": "PV",
+"cn": "药物警戒",
+"ex": "pharmacovigilance",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 227,
+"en": "RA",
+"cn": "法规事务/注册",
+"ex": "regulatory affairs",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 228,
+"en": "HEOR",
+"cn": "卫生经济与结果研究",
+"ex": "health economics & outcomes research",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 229,
+"en": "RWE",
+"cn": "真实世界证据",
+"ex": "real-world evidence",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 230,
+"en": "SFE",
+"cn": "销售效能",
+"ex": "sales force effectiveness",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 231,
+"en": "CRM",
+"cn": "客户关系管理系统",
+"ex": "customer relationship management",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 232,
+"en": "KPI",
+"cn": "关键绩效指标",
+"ex": "key performance indicator",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 233,
+"en": "ROI",
+"cn": "投资回报率",
+"ex": "return on investment",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 234,
+"en": "P&L",
+"cn": "损益表",
+"ex": "profit and loss",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 235,
+"en": "YTD / MTD / QTD",
+"cn": "年初/月初/季初至今累计",
+"ex": "year/month/quarter to date",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 236,
+"en": "YoY",
+"cn": "同比（vs去年）",
+"ex": "year over year",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 237,
+"en": "MoM / QoQ",
+"cn": "环比 / 季度环比",
+"ex": "month/quarter over quarter",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 238,
+"en": "A/T",
+"cn": "达成率",
+"ex": "attainment",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 239,
+"en": "PY / LY",
+"cn": "去年同期",
+"ex": "prior year / last year",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 240,
+"en": "NRDL",
+"cn": "国家医保目录",
+"ex": "national reimbursement drug list",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 241,
+"en": "VBP",
+"cn": "带量采购",
+"ex": "volume-based procurement",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 242,
+"en": "DTP",
+"cn": "直送药房",
+"ex": "direct-to-patient pharmacy",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 243,
+"en": "AE / SAE",
+"cn": "不良事件 / 严重不良事件",
+"ex": "adverse / serious adverse event",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 244,
+"en": "MoA",
+"cn": "作用机制",
+"ex": "mechanism of action",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 245,
+"en": "PK / PD",
+"cn": "药代动力学 / 药效学",
+"ex": "pharmacokinetics / pharmacodynamics",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 246,
+"en": "RCT",
+"cn": "随机对照试验",
+"ex": "randomized controlled trial",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 247,
+"en": "NNT / NNH",
+"cn": "需治疗人数 / 致害人数",
+"ex": "number needed to treat / to harm",
+"exCn": "",
+"tip": "英文全称",
+"star": 1,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 248,
+"en": "DDD",
+"cn": "限定日剂量",
+"ex": "defined daily dose",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 249,
+"en": "SmPC / PI",
+"cn": "产品说明书 / 处方信息",
+"ex": "summary of product characteristics / prescribing information",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 250,
+"en": "CGRP",
+"cn": "降钙素基因相关肽",
+"ex": "calcitonin gene-related peptide",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 251,
+"en": "VM",
+"cn": "前庭性偏头痛",
+"ex": "vestibular migraine",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 252,
+"en": "EM / CM",
+"cn": "发作性 / 慢性偏头痛",
+"ex": "episodic / chronic migraine",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 253,
+"en": "CME",
+"cn": "继续医学教育",
+"ex": "continuing medical education",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 254,
+"en": "IME",
+"cn": "独立医学教育",
+"ex": "independent medical education",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 255,
+"en": "MBR / QBR",
+"cn": "月度 / 季度业务回顾会",
+"ex": "monthly / quarterly business review",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 256,
+"en": "POA",
+"cn": "年度行动计划",
+"ex": "plan of action",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 257,
+"en": "SOP",
+"cn": "标准操作规程",
+"ex": "standard operating procedure",
+"exCn": "",
+"tip": "英文全称",
+"star": 3,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 258,
+"en": "RACI",
+"cn": "职责分工矩阵（负责人/审批人/咨询/知会）",
+"ex": "responsible, accountable, consulted, informed",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 259,
+"en": "LOE",
+"cn": "工作量评估",
+"ex": "level of effort",
+"exCn": "",
+"tip": "英文全称",
+"star": 1,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 260,
+"en": "NDA",
+"cn": "保密协议",
+"ex": "non-disclosure agreement",
+"exCn": "",
+"tip": "英文全称",
+"star": 1,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 261,
+"en": "QA / QC",
+"cn": "质量保证 / 质量控制",
+"ex": "quality assurance / control",
+"exCn": "",
+"tip": "英文全称",
+"star": 1,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 262,
+"en": "WIP",
+"cn": "进行中",
+"ex": "work in progress",
+"exCn": "",
+"tip": "英文全称",
+"star": 2,
+"cat": "缩写",
+"kind": "abbr"
+},
+{
+"id": 263,
+"en": "TBD agenda",
+"cn": "待定议程",
+"ex": "-",
+"exCn": "",
+"tip": "英文全称",
+"star": 1,
+"cat": "缩写",
+"kind": "abbr"
+}
+];</script>
+<script>
+/* ---------- 常量 ---------- */
+const KEY='vocab_pro_v1';
+const CATS=['缩写','商务','医药','数据','句式'];
+const CATORD={'缩写':0,'商务':1,'医药':2,'数据':3,'句式':4};
+const INTERVAL=[0,1,2,4,7,15];      // box -> 天数
+const DAY=86400000;
+
+/* ---------- 状态 ---------- */
+let S=load();
+function load(){
+  try{const o=JSON.parse(localStorage.getItem(KEY));if(o&&o.v)return o}catch(e){}
+  return {v:1,items:{},goal:15,accent:'en-US',rate:0.9,auto:true,days:[],today:{},lastCatIdx:0};
+}
+function save(){localStorage.setItem(KEY,JSON.stringify(S));}
+function today(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function it(id){
+  if(!S.items[id])S.items[id]={box:0,due:0,seen:0,mastered:0};
+  return S.items[id];
+}
+function learnedCount(){return Object.keys(S.items).filter(k=>S.items[k].seen>0).length}
+function masteredCount(){return Object.keys(S.items).filter(k=>S.items[k].mastered).length}
+function dueList(){
+  const now=Date.now();
+  return DATA.filter(d=>{const s=S.items[d.id];return s&&s.seen>0&&s.due<=now&&!s.mastered});
+}
+function newList(){
+  return DATA.filter(d=>!S.items[d.id]||S.items[d.id].seen===0)
+    .sort((a,b)=>(b.star-a.star)||(CATORD[a.cat]-CATORD[b.cat])||(a.id-b.id));
+}
+function todayDone(){const t=today();return S.today&&S.today[t]?S.today[t]:0;}
+
+/* ---------- 发音 ---------- */
+let VOICE=null;
+function loadVoices(){
+  const vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  if(!vs.length)return;
+  const want=S.accent;
+  VOICE=vs.find(v=>v.lang===want&&/natural|enhanced|premium|google/i.test(v.name))
+     ||vs.find(v=>v.lang===want)
+     ||vs.find(v=>/^en/i.test(v.lang))||null;
+}
+if(window.speechSynthesis){loadVoices();speechSynthesis.onvoiceschanged=loadVoices;}
+function warm(){try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;speechSynthesis.speak(u)}catch(e){}}
+function ttsText(s){
+  let t=String(s);
+  t=t.replace(/\s*\([^)]*\)\s*/g,' ');
+  t=t.replace(/\s*\/\s*/g,', ');
+  t=t.replace(/\//g,' ');
+  return t.replace(/\s+/g,' ').trim();
+}
+function speak(txt){
+  if(!window.speechSynthesis)return;
+  try{
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(ttsText(txt));
+    u.lang=S.accent;u.rate=parseFloat(S.rate)||0.9;
+    if(VOICE)u.voice=VOICE;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ---------- UI 基础 ---------- */
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');clearTimeout(t._x);t._x=setTimeout(()=>t.classList.remove('on'),1200)}
+function jattr(s){return JSON.stringify(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function stars(n){return '★'.repeat(n)}
+function catChip(d){return '<span class="chip">'+d.cat+(d.tag?' · '+d.tag:'')+'</span><span class="chip star">'+stars(d.star)+'</span>'}
+
+/* ---------- 卡片渲染 ---------- */
+let cur=null,curMode='learn',curFlipped=false;
+function cardHTML(d,i,total){
+  const short=d.kind==='phrase';
+  return '<div class="card" id="card'+d.id+'">'
+   +'<div class="card-inner">'
+     +'<div class="face front" onclick="flip()">'
+       +'<div class="mtrow" style="justify-content:center">'+catChip(d)+'<span class="chip idx">'+(i+1)+'/'+total+'</span></div>'
+       +'<div class="wd'+(short?' small':'')+'">'+esc(d.en)+'</div>'
+       +'<div class="tip-short">👆 点击卡片看中文</div>'
+       +'<button class="spk" onclick="event.stopPropagation();speak('+jattr(d.en)+')">🔊</button>'
+       +'<div class="hint">英文发音 · 点喇叭可重听</div>'
+     +'</div>'
+     +'<div class="face back">'
+       +'<div class="mtrow">'+catChip(d)+'</div>'
+       +'<div class="cn">'+esc(d.cn)+'</div>'
+       +(d.ex?'<div class="ex"><div class="en">'+esc(d.ex)+'</div>'+(d.exCn?'<div class="cnl">'+esc(d.exCn)+'</div>':'')+'</div>':'')
+       +(d.tip?'<div class="tip">💡 '+esc(d.tip)+'</div>':'')
+       +'<div class="speakline">'
+         +'<button class="mini" onclick="speak('+jattr(d.en)+')">🔊 读单词</button>'
+         +(d.ex?'<button class="mini" onclick="speak('+jattr(d.ex)+')">🔊 读例句</button>':'')
+       +'</div>'
+     +'</div>'
+   +'</div></div>';
+}
+function gradeHTML(){
+  return '<div class="grade">'
+   +'<button class="g0" onclick="grade(0)">😵 不认识</button>'
+   +'<button class="g1" onclick="grade(1)">😐 模糊</button>'
+   +'<button class="g2" onclick="grade(2)">😎 掌握</button>'
+   +'</div><div class="ghint"><span>明天再来</span><span>2天后</span><span>进入长期记忆</span></div>';
+}
+function flip(){
+  const c=document.querySelector('#learnBox .card, #revBox .card');if(!c)return;
+  c.classList.toggle('flip');curFlipped=!curFlipped;
+  if(curFlipped&&S.auto)speak(cur.ex||cur.en);
+}
+function grade(g){
+  if(!cur)return;
+  const s=it(cur.id);s.seen=(s.seen||0)+1;
+  if(g===0){s.box=0;s.due=Date.now()+10*60000;}
+  else if(g===1){s.box=Math.min(s.box,1);s.due=Date.now()+INTERVAL[1]*DAY;}
+  else{s.box=Math.min(s.box+1,INTERVAL.length-1);s.due=Date.now()+INTERVAL[s.box]*DAY;if(s.box>=3)s.mastered=1;}
+  if(curMode==='learn'){
+    const t=today();S.today=S.today||{};S.today[t]=(S.today[t]||0)+1;
+    if(S.days.indexOf(t)<0){S.days.push(t);S.days=S.days.slice(-400)}
+  }
+  save();renderLearn();renderReview();renderHead();
+  if(curMode==='learn'&&todayDone()===S.goal)setTimeout(()=>toast('🎉 今日目标 '+S.goal+' 条完成！'),320);
+}
+
+/* ---------- 渲染：学习 ---------- */
+function renderLearn(){
+  const box=document.getElementById('learnBox');
+  const goal=S.goal, done=todayDone();
+  if(done>=goal){
+    box.innerHTML='<div class="empty"><div class="ico">🎉</div><p><b>今日 '+goal+' 条已完成</b><br>碎片时间别浪费，去「听音」练耳朵</p>'
+      +'<button class="b" onclick="more()">💪 再学一轮（'+S.goal+' 条）</button>'
+      +'<button class="b" style="background:#EEF1F6;color:#42506B" onclick="go(\'t-listen\')">👂 听音辨义</button></div>';
+    cur=null;return;
+  }
+  const pool=newList();
+  if(!pool.length){box.innerHTML='<div class="empty"><div class="ico">🏁</div><p>全部词条已学完<br>去「复习」巩固吧</p><button class="b" onclick="go(\'t-review\')">🔁 去复习</button></div>';cur=null;return;}
+  cur=pool[0];curMode='learn';curFlipped=false;
+  box.innerHTML='<div style="font-size:12.5px;color:#8A94A6;margin-bottom:6px">📖 新学 · 建议顺序：缩写 → 商务 → 医药 → 数据 → 句式</div>'
+    +cardHTML(cur,done,goal)+gradeHTML();
+  if(S.auto)setTimeout(()=>speak(cur.en),260);
+}
+function more(){const t=today();S.today=S.today||{};S.today[t]=0;save();renderLearn();renderHead();}
+
+/* ---------- 渲染：复习 ---------- */
+function renderReview(){
+  const box=document.getElementById('revBox');
+  const due=dueList().sort((a,b)=>S.items[a.id].due-S.items[b.id].due);
+  document.getElementById('navDue').textContent=due.length?'('+due.length+')':'';
+  if(!due.length){
+    box.innerHTML='<div class="empty"><div class="ico">✅</div><p>暂时没有到期要复习的<br>碎片时间可以去学新词</p><button class="b" onclick="go(\'t-learn\')">📖 学新词</button></div>';return;
+  }
+  cur=due[0];curMode='review';curFlipped=false;
+  box.innerHTML='<div style="font-size:12.5px;color:#8A94A6;margin-bottom:6px">🔁 待复习 '+due.length+' 条 · 按遗忘曲线排序</div>'
+    +cardHTML(cur,0,due.length)+gradeHTML();
+  if(S.auto)setTimeout(()=>speak(cur.en),260);
+}
+
+/* ---------- 听音辨义 ---------- */
+let lisAns=null;
+function renderListen(){
+  const box=document.getElementById('lisBox');
+  const pool=DATA.filter(d=>d.kind!=='phrase');
+  const right=pool[Math.floor(Math.random()*pool.length)];
+  const wrongs=[];let guard=0;
+  while(wrongs.length<3&&guard++<200){
+    const w=pool[Math.floor(Math.random()*pool.length)];
+    if(w.id!==right.id&&w.cn!==right.cn&&!wrongs.some(x=>x.cn===w.cn))wrongs.push(w);
+  }
+  const opts=[right].concat(wrongs).sort(()=>Math.random()-0.5);
+  lisAns=right;
+  box.innerHTML='<div style="font-size:12.5px;color:#8A94A6;margin-bottom:10px">👂 听英文读音，选中文意思（练耳朵，开车/地铁也能玩）</div>'
+   +'<div class="stat" style="text-align:center">'
+     +'<button class="spk" style="margin:6px auto 12px" onclick="speak('+jattr(right.en)+')">🔊</button>'
+     +'<div style="font-size:12px;color:#98A1B0">点喇叭听读音（可反复听）</div>'
+   +'</div>'
+   +opts.map(o=>'<button class="item" style="width:100%" onclick="pick('+o.id+','+right.id+')">'
+      +'<div class="l"><div class="c" style="margin-top:0;font-size:14px;color:#12243D">'+esc(o.cn)+'</div></div></button>').join('')
+   +'<button class="btn gray" onclick="renderListen()">🔀 换一题</button>';
+  setTimeout(()=>{if(S.auto)speak(right.en)},300);
+}
+function pick(id,right){
+  if(id===right){toast('✅ 正确！');it(right);const s=it(right);if(!s.seen)s.seen=1;save();setTimeout(renderListen,700);}
+  else{toast('❌ 再听一次');}
+}
+
+/* ---------- 词表 ---------- */
+let fCat='全部',fStar='全部';
+function renderFilters(){
+  document.getElementById('fcat').innerHTML=['全部'].concat(CATS)
+    .map(c=>'<button class="'+(fCat===c?'on':'')+'" onclick="setCat(\''+c+'\')">'+c+'</button>').join('');
+  document.getElementById('fstar').innerHTML=['全部','★★★','★★','★']
+    .map(c=>'<button class="'+(fStar===c?'on':'')+'" onclick="setStar(\''+c+'\')">'+c+'</button>').join('');
+}
+function setCat(c){fCat=c;renderFilters();renderList()}
+function setStar(c){fStar=c;renderFilters();renderList()}
+function renderList(){
+  const q=(document.getElementById('q').value||'').trim().toLowerCase();
+  const rows=DATA.filter(d=>{
+    if(fCat!=='全部'&&d.cat!==fCat)return false;
+    if(fStar!=='全部'&&stars(d.star)!==fStar)return false;
+    if(q&&!((d.en+' '+d.cn+' '+d.ex+' '+(d.tip||'')).toLowerCase().includes(q)))return false;
+    return true;
+  });
+  document.getElementById('listBox').innerHTML=rows.length?rows.map(d=>{
+    const s=S.items[d.id];const lv=s?(s.mastered?1:s.seen?2:3):3;
+    return '<div class="item'+(d._open?' open':'')+'" onclick="tog(this,'+d.id+')">'
+      +'<div class="l"><div class="e">'+esc(d.en)+'</div><div class="c">'+esc(d.cn)+'</div></div>'
+      +'<div class="r"><span class="dot d'+lv+'"></span><span style="font-size:10.5px;color:#A6AEBB">'+stars(d.star)+'</span></div>'
+    +'</div><div class="detail" data-id="'+d.id+'">'
+      +(d.ex?'<div style="margin-bottom:6px"><b>例句：</b>'+esc(d.ex)+'</div>':'')
+      +(d.exCn?'<div style="margin-bottom:6px;color:#6B7688">'+esc(d.exCn)+'</div>':'')
+      +(d.tip?'<div style="color:#B47600">💡 '+esc(d.tip)+'</div>':'')
+      +'<div style="margin-top:10px;display:flex;gap:8px">'
+        +'<button class="mini" onclick="event.stopPropagation();speak('+jattr(d.en)+')">🔊 读音</button>'
+        +'<button class="mini" onclick="event.stopPropagation();markMaster('+d.id+')">✔ 标记掌握</button>'
+      +'</div>'
+    +'</div>';
+  }).join(''):'<div class="empty"><p>没有匹配的词条</p></div>';
+  document.getElementById('listBox').insertAdjacentHTML('beforeend','<div style="font-size:11.5px;color:#A6AEBB;text-align:center;padding:10px">共 '+rows.length+' 条 · 点词条展开详情</div>');
+}
+function tog(el,id){el.classList.toggle('open');speak(DATA.find(d=>d.id===id).en)}
+function markMaster(id){const s=it(id);s.seen=s.seen||1;s.mastered=1;s.box=5;s.due=Date.now()+15*DAY;save();toast('已标记掌握');renderHead();}
+
+/* ---------- 我的 ---------- */
+function renderMe(){
+  const L=learnedCount(),M=masteredCount(),T=DATA.length;
+  const streak=calcStreak();
+  const byCat=CATS.map(c=>{
+    const arr=DATA.filter(d=>d.cat===c);
+    const m=arr.filter(d=>S.items[d.id]&&S.items[d.id].mastered).length;
+    return {c:c,m:m,t:arr.length};
+  });
+  const box=document.getElementById('meBox');
+  box.innerHTML=
+   '<div class="stat"><h3>📊 学习总览</h3><div class="bignum">'
+    +'<div><b>'+L+'</b><span>已学 / '+T+'</span></div>'
+    +'<div><b>'+M+'</b><span>已掌握</span></div>'
+    +'<div><b>'+streak+'</b><span>连续打卡(天)</span></div>'
+    +'<div><b>'+todayDone()+'</b><span>今日 / '+S.goal+'</span></div>'
+   +'</div></div>'
+   +'<div class="stat"><h3>📈 分类进度</h3>'
+    +byCat.map(x=>'<div class="rowbar"><span class="nm">'+x.c+'</span><span class="bar"><i style="width:'+Math.round(x.m/x.t*100)+'%"></i></span><span class="vv">'+x.m+'/'+x.t+'</span></div>').join('')
+   +'</div>'
+   +'<div class="plan"><h3>🗓 12 周计划（每天 15 分钟碎片）</h3>'
+    +'<table><tr><th>周次</th><th>主攻</th><th>达到什么水平</th></tr>'
+    +'<tr><td>W1-2</td><td>缩写 51 条</td><td>邮件里的黑话不再卡壳</td></tr>'
+    +'<tr><td>W3-5</td><td>商务词 70 条</td><td>能读懂英文邮件大意</td></tr>'
+    +'<tr><td>W6-8</td><td>医药词 67 条</td><td>能看懂 global deck</td></tr>'
+    +'<tr><td>W9-10</td><td>数据词 45 条</td><td>能看懂数据报表</td></tr>'
+    +'<tr><td>W11</td><td>句式 30 条</td><td>能自己写英文邮件</td></tr>'
+    +'<tr><td>W12</td><td>查漏 + 总复习</td><td>全书过一遍</td></tr></table>'
+   +'</div>'
+   +'<div class="plan"><h3>⏱ 碎片时间怎么用</h3>'
+    +'<div class="rule"><span class="n">1</span><div><b>早上通勤 5 分钟</b>：🔁 复习 + 👂 听音（开车只听，别看屏幕）</div></div>'
+    +'<div class="rule"><span class="n">2</span><div><b>午饭后 5 分钟</b>：📖 学 10-15 条新词（排队、等电梯都行）</div></div>'
+    +'<div class="rule"><span class="n">3</span><div><b>睡前 5 分钟</b>：🔁 复习当天 + 打卡</div></div>'
+    +'<div class="rule"><span class="n">4</span><div><b>会议间隙 2 分钟</b>：刷 5 张卡，积少成多</div></div>'
+   +'</div>'
+   +'<div class="plan"><h3>🔒 三条铁律</h3>'
+    +'<div class="rule"><span class="n">1</span><div>只求<b>「看到英文 → 反应出中文」</b>，不要求会拼写、不要求会开口</div></div>'
+    +'<div class="rule"><span class="n">2</span><div>断一天没事，<b>断三天就废</b>。哪怕只有 2 分钟，也刷 5 张卡</div></div>'
+    +'<div class="rule"><span class="n">3</span><div>遇到真实邮件里的生词 → 丢给 WorkBuddy，加进你的词库</div></div>'
+   +'</div>'
+   +'<div class="stat"><h3>⚙️ 设置</h3>'
+    +'<div class="setrow"><span>每日目标（条）</span><input type="number" id="sGoal" value="'+S.goal+'" min="5" max="60" step="5" style="width:70px"></div>'
+    +'<div class="setrow"><span>发音口音</span><select id="sAcc"><option value="en-US"'+(S.accent==='en-US'?' selected':'')+'>美音 🇺🇸</option><option value="en-GB"'+(S.accent==='en-GB'?' selected':'')+'>英音 🇬🇧</option></select></div>'
+    +'<div class="setrow"><span>语速</span><select id="sRate"><option value="0.75"'+(S.rate==0.75?' selected':'')+'>慢</option><option value="0.9"'+(S.rate==0.9?' selected':'')+'>正常</option><option value="1.05"'+(S.rate==1.05?' selected':'')+'>快</option></select></div>'
+    +'<div class="setrow"><span>翻卡自动朗读</span><div class="sw'+(S.auto?' on':'')+'" onclick="tgAuto(this)"><i></i></div></div>'
+    +'<div class="setrow"><span>测试发音</span><button class="mini" style="flex:none;padding:6px 14px" onclick="speak(\'Let us align on the Q3 priorities\')">🔊 试听</button></div>'
+   +'</div>'
+   +'<button class="btn" onclick="saveSet()">保存设置</button>'
+   +'<button class="btn gray" onclick="expData()">⬆ 备份进度（导出文件）</button>'
+   +'<button class="btn gray" onclick="document.getElementById(\'imp\').click()">⬇ 恢复进度（导入文件）</button>'
+   +'<input type="file" id="imp" accept="application/json" style="display:none" onchange="impData(this)">'
+   +'<button class="btn red" onclick="resetAll()">🗑 清空全部进度</button>'
+   +'<div style="font-size:11.5px;color:#A6AEBB;text-align:center;padding:14px 8px">进度保存在本机浏览器<br>换手机用「备份/恢复」迁移</div>';
+}
+function calcStreak(){
+  const set=new Set(S.days||[]);let n=0,d=new Date();
+  for(let i=0;i<400;i++){
+    const k=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    if(set.has(k)){n++}else if(i>0){break}
+    d=new Date(d.getTime()-DAY);
+  }
+  return n;
+}
+function tgAuto(el){S.auto=!S.auto;el.classList.toggle('on',S.auto);save()}
+function saveSet(){
+  S.goal=parseInt(document.getElementById('sGoal').value)||15;
+  S.accent=document.getElementById('sAcc').value;
+  S.rate=parseFloat(document.getElementById('sRate').value);
+  save();loadVoices();toast('已保存');renderHead();renderLearn();
+}
+function expData(){
+  const b=new Blob([JSON.stringify(S)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);
+  a.download='商务英语进度备份_'+today()+'.json';a.click();toast('已导出');
+}
+function impData(el){
+  const f=el.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{const o=JSON.parse(r.result);if(o&&o.v){S=o;save();toast('已恢复');renderAll()}}catch(e){toast('文件格式不对')}};
+  r.readAsText(f);el.value='';
+}
+function resetAll(){
+  if(!confirm('确定清空全部学习进度？此操作不可恢复。'))return;
+  S={v:1,items:{},goal:S.goal,accent:S.accent,rate:S.rate,auto:S.auto,days:[],today:{}};
+  save();renderAll();toast('已清空');
+}
+
+/* ---------- 头部 / 导航 ---------- */
+function renderHead(){
+  const L=learnedCount(),T=DATA.length;
+  document.getElementById('pbar').style.width=Math.round(L/T*100)+'%';
+  document.getElementById('hdL').textContent='已学 '+L+' / '+T+' · 掌握 '+masteredCount();
+  document.getElementById('hdR').textContent='今日 '+todayDone()+' / '+S.goal;
+}
+function go(id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===id));
+  window.scrollTo(0,0);
+  if(id==='t-listen')renderListen();
+  if(id==='t-me')renderMe();
+  if(id==='t-list')renderList();
+  if(id==='t-learn')renderLearn();
+  if(id==='t-review')renderReview();
+}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{warm();go(b.dataset.t)});
+document.getElementById('q').oninput=renderList;
+
+function renderAll(){renderHead();renderFilters();renderList();renderLearn();renderReview();}
+renderAll();
+setTimeout(renderHead,50);
+
+/* 首次使用引导 */
+if(!localStorage.getItem('vocab_seen_guide')){
+  setTimeout(()=>{
+    document.getElementById('mbox').innerHTML='<b>📱 装到手机桌面</b>'
+      +'iPhone：Safari 打开 → 底部分享按钮 → 「添加到主屏幕」<br><br>'
+      +'安卓：Chrome 打开 → 右上角菜单 → 「添加到主屏幕」<br><br>'
+      +'之后点桌面图标就能全屏使用，跟 App 一样，<b>断网也能用</b>。';
+    document.getElementById('mask').classList.add('on');
+    localStorage.setItem('vocab_seen_guide','1');
+  },900);
+}
+document.getElementById('mask').onclick=function(){this.classList.remove('on')};
+
+/* 跨天自动重置今日计数 */
+setInterval(()=>{renderHead()},60000);
+</script>
+</body>
+</html>
