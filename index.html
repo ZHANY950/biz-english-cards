@@ -3171,9 +3171,9 @@ function catChip(d){return '<span class="chip">'+d.cat+(d.tag?' · '+d.tag:'')+'
 let cur=null,curMode='learn',curFlipped=false;
 function cardHTML(d,i,total){
   const short=d.kind==='phrase';
-  return '<div class="card" id="card'+d.id+'">'
+  return '<div class="card" id="card'+d.id+'" onclick="flip()">'
    +'<div class="card-inner">'
-     +'<div class="face front" onclick="flip()">'
+     +'<div class="face front">'
        +'<div class="mtrow" style="justify-content:center">'+catChip(d)+'<span class="chip idx">'+(i+1)+'/'+total+'</span></div>'
        +'<div class="wd'+(short?' small':'')+'">'+esc(d.en)+'</div>'
        +'<div class="tip-short">👆 点击卡片看中文</div>'
@@ -3186,9 +3186,10 @@ function cardHTML(d,i,total){
        +(d.ex?'<div class="ex"><div class="en">'+esc(d.ex)+'</div>'+(d.exCn?'<div class="cnl">'+esc(d.exCn)+'</div>':'')+'</div>':'')
        +(d.tip?'<div class="tip">💡 '+esc(d.tip)+'</div>':'')
        +'<div class="speakline">'
-         +'<button class="mini" onclick="speak('+jattr(d.en)+')">🔊 读单词</button>'
-         +(d.ex?'<button class="mini" onclick="speak('+jattr(d.ex)+')">🔊 读例句</button>':'')
+         +'<button class="mini" onclick="event.stopPropagation();speak('+jattr(d.en)+')">🔊 读单词</button>'
+         +(d.ex?'<button class="mini" onclick="event.stopPropagation();speak('+jattr(d.ex)+')">🔊 读例句</button>':'')
        +'</div>'
+       +'<div class="hint" style="margin-top:14px">👆 点击卡片任意处翻回正面</div>'
      +'</div>'
    +'</div></div>';
 }
